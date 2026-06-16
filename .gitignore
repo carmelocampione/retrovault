@@ -4,3 +4,4 @@ roms/wiiu/
 .idea/
 .claude/
 config/settings.json
+config/consoles.json

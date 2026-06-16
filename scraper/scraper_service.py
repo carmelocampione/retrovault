@@ -120,3 +120,4 @@ class ScraperService:
 
         threading.Thread(target=_run, daemon=True).start()
         return result
+    
