@@ -1,0 +1,6 @@
+roms/gba/
+roms/wiiu/
+.vscode/
+.idea/
+.claude/
+config/settings.json

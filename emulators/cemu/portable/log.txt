@@ -1,0 +1,67 @@
+[19:59:27.193] ------- Init Cemu 2.6 -------
+[19:59:27.194] Init Wii U memory space (base: 0x000001ee6ddc0000)
+[19:59:27.194] mlc01 path: c:/Users/campi/PycharmProjects/retrovault/emulators/cemu/portable/mlc01
+[19:59:27.194] CPU: 13th Gen Intel(R) Core(TM) i7-13700H
+[19:59:27.194] RAM: 15901MB
+[19:59:27.194] Platform: Windows 10 Pro (Build 9200)
+[19:59:27.194] Used CPU extensions: SSSE3, SSE4.1, AVX, AVX2, LZCNT, MOVBE, BMI2, AES-NI, INVARIANT-TSC
+[19:59:27.196] IOSU_CRYPTO: No otp.bin found. Online mode cannot be used
+[19:59:27.196] IOSU_CRYPTO: No Seeprom.bin found. Online mode cannot be used
+[19:59:27.272] Mounting title 000500001010ed00
+[19:59:27.273] Base: c:/Users/campi/PycharmProjects/retrovault/roms/wiiu/MARIO KART 8 [Game] [000500001010ed00] [Folder]
+[19:59:27.273] Update: Not present
+[19:59:27.273] DLC: Not present
+[19:59:27.289] COS: System fonts found. Generated shareddata (26609KB)
+[19:59:27.294] Recompiler initialized
+[19:59:27.472] ------- Init Vulkan graphics backend -------
+[19:59:27.494] Vulkan instance version: 1.4
+[19:59:27.563] Using GPU: Intel(R) UHD Graphics
+[19:59:27.563] Driver version: 101.6790
+[19:59:27.563] Vulkan: present_wait extension: unsupported
+[19:59:27.563] VulkanLimits: UBAlignment 64 nonCoherentAtomSize 1
+[19:59:27.575] Using available debug function: vkCreateDebugUtilsMessengerEXT()
+[19:59:27.575] Vulkan device memory info:
+[19:59:27.575] Heap 0 - Size 7950MB Flags 0x00000001
+[19:59:27.575] Memory 0 - HeapIndex 0 Flags 0x00000001
+[19:59:27.575] Memory 1 - HeapIndex 0 Flags 0x00000007
+[19:59:27.575] Memory 2 - HeapIndex 0 Flags 0x0000000f
+[19:59:27.575] VK_FORMAT_R4G4_UNORM_PACK8 not supported
+[19:59:30.001] ------- Loaded title -------
+[19:59:30.001] TitleId: 00050000-1010ed00
+[19:59:30.001] TitleVersion: v1
+[19:59:30.001] TitleRegion: EU
+[19:59:30.001] Save path:   c:/Users/campi/PycharmProjects/retrovault/emulators/cemu/portable/mlc01/usr/save/00050000/1010ED00/user/ (not present)
+[19:59:30.001] Shader cache file: shaderCache/transferable/000500001010ed00.bin
+[19:59:30.001] gameprofile path: gameProfiles/default/000500001010ed00.ini
+[19:59:30.001] RPX hash (updated): 9708a1d3
+[19:59:30.001] RPX hash (base): 9708a1d3
+[19:59:30.018] nsyshid::BackendLibusb: device not on whitelist: 046d:c52b
+[19:59:30.018] nsyshid::BackendLibusb: device not on whitelist: 27c6:550a
+[19:59:30.018] nsyshid::BackendLibusb: device not on whitelist: 8086:51ed
+[19:59:30.018] nsyshid::BackendLibusb: device not on whitelist: 8086:a71e
+[19:59:30.018] nsyshid::BackendLibusb: device not on whitelist: 8087:0026
+[19:59:30.018] nsyshid::BackendLibusb: device not on whitelist: 04f2:b7b4
+[19:59:30.090] Loaded module 'turbo' with checksum 0x2a2dc82c
+[19:59:30.091] Loaded module 'mvplayer' with checksum 0x35ced641
+[19:59:30.091] RPL link time: 78ms
+[19:59:30.128] HLE scan time: 31ms
+[19:59:30.128] ------- Active settings -------
+[19:59:30.128] CPU-Mode: 3
+[19:59:30.128] Load shared libraries: true
+[19:59:30.128] Use precompiled shaders: 0
+[19:59:30.128] Full sync at GX2DrawDone: true
+[19:59:30.128] Strict shader mul: true
+[19:59:30.128] Async compile: false
+[19:59:30.128] Console language: 8
+[19:59:30.299] ------- Activate graphic packs -------
+[19:59:30.299] ------- Init Audio backend -------
+[19:59:30.299] DirectSound: available
+[19:59:30.299] XAudio 2.8: available
+[19:59:30.299] Cubeb: available
+[19:59:30.299] ------- Init Audio input backend -------
+[19:59:30.299] Cubeb: available
+[19:59:30.299] ------- Run title -------
+[19:59:30.735] Shader cache loaded with 955 shaders. Commited mem 112MB. Took 421ms
+[19:59:39.131] IOSU_ACT: using account default in first slot
+[19:59:39.153] Loaded module 'mw_igr' with checksum 0x75ee1bff
+[19:59:39.155] Loaded module 'mw_igr_sbc' with checksum 0x58ff43bc

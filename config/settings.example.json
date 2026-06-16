@@ -1,0 +1,8 @@
+{
+  "background_image": "assets\\backgrounds\\test3.jpg",
+  "fullscreen": false,
+  "server_url": "http://YOUR_SERVER_IP:5000",
+  "download_path": "downloads/",
+  "igdb_client_id": "YOUR_IGDB_CLIENT_ID",
+  "igdb_client_secret": "YOUR_IGDB_CLIENT_SECRET"
+}

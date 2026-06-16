@@ -1,0 +1,310 @@
+[
+  {
+    "id": "nes",
+    "name": "Nintendo NES",
+    "icon": "assets/icons/nes.png",
+    "visible": false,
+    "emulator_cmd": "retroarch -L cores/nestopia_libretro.dll",
+    "roms_path": "roms/nes/",
+    "rom_extensions": [
+      ".nes",
+      ".zip"
+    ],
+    "games": []
+  },
+  {
+    "id": "snes",
+    "name": "Super Nintendo",
+    "icon": "assets/icons/snes.png",
+    "visible": false,
+    "emulator_cmd": "retroarch -L cores/snes9x_libretro.dll",
+    "roms_path": "roms/snes/",
+    "rom_extensions": [
+      ".smc",
+      ".sfc",
+      ".zip"
+    ],
+    "games": []
+  },
+  {
+    "id": "n64",
+    "name": "Nintendo 64",
+    "icon": "assets/icons/n64.png",
+    "visible": false,
+    "emulator_cmd": "retroarch -L cores/mupen64plus_libretro.dll",
+    "roms_path": "roms/n64/",
+    "rom_extensions": [
+      ".z64",
+      ".n64",
+      ".v64",
+      ".zip"
+    ],
+    "games": []
+  },
+  {
+    "id": "gamecube",
+    "name": "GameCube",
+    "icon": "assets/icons/gamecube.png",
+    "visible": false,
+    "emulator_cmd": "Dolphin.exe -e",
+    "roms_path": "roms/gamecube/",
+    "rom_extensions": [
+      ".iso",
+      ".rvz",
+      ".gcm",
+      ".gcz",
+      ".ciso",
+      ".7z"
+    ],
+    "games": [
+      {
+        "id": "gamecube_super_smash_bros_melee_europe_en_fr_de_es_it",
+        "name": "Super Smash Bros Melee",
+        "rom": "roms/gamecube/Super Smash Bros. Melee (Europe) (En,Fr,De,Es,It).rvz",
+        "cover": "assets/covers/gamecube/Super Smash Bros. Melee (Europe) (En,Fr,De,Es,It)-thumb.png"
+      }
+    ]
+  },
+  {
+    "id": "wii",
+    "name": "Nintendo Wii",
+    "icon": "assets/icons/wii.png",
+    "visible": false,
+    "emulator_cmd": "Dolphin.exe -e",
+    "roms_path": "roms/wii/",
+    "rom_extensions": [
+      ".iso",
+      ".rvz",
+      ".wbfs",
+      ".gcz",
+      ".ciso"
+    ],
+    "games": []
+  },
+  {
+    "id": "wiiu",
+    "name": "Nintendo Wii U",
+    "icon": "assets/icons/wiiu.png",
+    "visible": true,
+    "emulator_cmd": "Cemu.exe -g",
+    "roms_path": "roms/wiiu/",
+    "rom_extensions": [
+      ".rpx",
+      ".wud",
+      ".wux",
+      ".iso"
+    ],
+    "games": [
+      {
+        "id": "wiiu_rs10_production",
+        "name": "Donkey Kong Country Tropical Freeze",
+        "rom": "roms/wiiu/Donkey Kong Country Tropical Freeze [Game] [0005000010138300]/code/rs10_production.rpx",
+        "cover": "assets/covers/wiiu/rs10_production-thumb.png"
+      },
+      {
+        "id": "wiiu_turbo",
+        "name": "MARIO KART 8",
+        "rom": "roms/wiiu/MARIO KART 8 [Game] [000500001010ed00]/code/Turbo.rpx",
+        "cover": "assets/covers/wiiu/Turbo-thumb.png"
+      },
+      {
+        "id": "wiiu_red_pro2",
+        "name": "New SUPER MARIO BROS U New SUPER LUIGI U",
+        "rom": "roms/wiiu/New SUPER MARIO BROS U New SUPER LUIGI U [Game] [000500001014b800]/code/red-pro2.rpx",
+        "cover": "assets/covers/wiiu/red-pro2-thumb.png"
+      },
+      {
+        "id": "wiiu_redcarpet",
+        "name": "SUPER MARIO 3D WORLD",
+        "rom": "roms/wiiu/SUPER MARIO 3D WORLD [Game] [0005000010145d00]/code/RedCarpet.rpx",
+        "cover": "assets/covers/wiiu/RedCarpet-thumb.png"
+      },
+      {
+        "id": "wiiu_u_king",
+        "name": "The Legend of Zelda Breath of the Wild",
+        "rom": "roms/wiiu/The Legend of Zelda Breath of the Wild [Game] [00050000101c9500]/code/U-King.rpx",
+        "cover": "assets/covers/wiiu/U-King-thumb.png"
+      }
+    ]
+  },
+  {
+    "id": "switch",
+    "name": "Nintendo Switch",
+    "icon": "assets/icons/switch.png",
+    "visible": true,
+    "emulator_cmd": "yuzu.exe",
+    "roms_path": "roms/switch/",
+    "rom_extensions": [
+      ".nsp",
+      ".xci",
+      ".nca"
+    ],
+    "games": []
+  },
+  {
+    "id": "gb",
+    "name": "Game Boy",
+    "icon": "assets/icons/gb.png",
+    "visible": false,
+    "emulator_cmd": "retroarch -L cores/gambatte_libretro.dll",
+    "roms_path": "roms/gb/",
+    "rom_extensions": [
+      ".gb",
+      ".zip"
+    ],
+    "games": []
+  },
+  {
+    "id": "gbc",
+    "name": "Game Boy Color",
+    "icon": "assets/icons/gbc.png",
+    "visible": false,
+    "emulator_cmd": "retroarch -L cores/gambatte_libretro.dll",
+    "roms_path": "roms/gbc/",
+    "rom_extensions": [
+      ".gbc",
+      ".zip"
+    ],
+    "games": []
+  },
+  {
+    "id": "gba",
+    "name": "Game Boy Advance",
+    "icon": "assets/icons/gba.png",
+    "visible": true,
+    "emulator_cmd": "retroarch -L cores/mgba_libretro.dll",
+    "roms_path": "roms/gba/",
+    "rom_extensions": [
+      ".gba",
+      ".zip"
+    ],
+    "games": [
+      {
+        "id": "gba_pokemon_firered_version_usa_europe_rev_1",
+        "name": "Pokemon - Firered Version",
+        "rom": "roms/gba/Pokemon - FireRed Version (USA, Europe) (Rev 1).zip",
+        "cover": "assets/covers/gba/Pokemon - FireRed Version (USA, Europe) (Rev 1)-thumb.png"
+      },
+      {
+        "id": "gba_pokemon_leafgreen_version_usa_europe_rev_1",
+        "name": "Pokemon - Leafgreen Version",
+        "rom": "roms/gba/Pokemon - LeafGreen Version (USA, Europe) (Rev 1).zip",
+        "cover": "assets/covers/gba/Pokemon - LeafGreen Version (USA, Europe) (Rev 1)-thumb.png"
+      },
+      {
+        "id": "gba_donkey_kong_country_europe_en_fr_de_es_it",
+        "name": "Donkey Kong Country",
+        "rom": "roms/gba/Donkey Kong Country (Europe) (En,Fr,De,Es,It).zip",
+        "cover": "assets/covers/gba/Donkey Kong Country (Europe) (En,Fr,De,Es,It)-thumb.png"
+      },
+      {
+        "id": "gba_donkey_kong_country_2_europe_en_fr_de_es_it",
+        "name": "Donkey Kong Country 2",
+        "rom": "roms/gba/Donkey Kong Country 2 (Europe) (En,Fr,De,Es,It).zip",
+        "cover": "assets/covers/gba/Donkey Kong Country 2 (Europe) (En,Fr,De,Es,It)-thumb.png"
+      }
+    ]
+  },
+  {
+    "id": "nds",
+    "name": "Nintendo DS",
+    "icon": "assets/icons/nds.png",
+    "visible": false,
+    "emulator_cmd": "retroarch -L cores/desmume_libretro.dll",
+    "roms_path": "roms/nds/",
+    "rom_extensions": [
+      ".nds",
+      ".zip"
+    ],
+    "games": []
+  },
+  {
+    "id": "megadrive",
+    "name": "Sega Mega Drive",
+    "icon": "assets/icons/megadrive.png",
+    "visible": false,
+    "emulator_cmd": "retroarch -L cores/genesis_plus_gx_libretro.dll",
+    "roms_path": "roms/megadrive/",
+    "rom_extensions": [
+      ".md",
+      ".bin",
+      ".gen",
+      ".zip"
+    ],
+    "games": []
+  },
+  {
+    "id": "dreamcast",
+    "name": "Sega Dreamcast",
+    "icon": "assets/icons/dreamcast.png",
+    "visible": false,
+    "emulator_cmd": "retroarch -L cores/flycast_libretro.dll",
+    "roms_path": "roms/dreamcast/",
+    "rom_extensions": [
+      ".cdi",
+      ".gdi",
+      ".chd",
+      ".iso"
+    ],
+    "games": []
+  },
+  {
+    "id": "ps1",
+    "name": "PlayStation 1",
+    "icon": "assets/icons/ps1.png",
+    "visible": true,
+    "emulator_cmd": "retroarch -L cores/mednafen_psx_libretro.dll",
+    "roms_path": "roms/ps1/",
+    "rom_extensions": [
+      ".bin",
+      ".cue",
+      ".iso",
+      ".pbp",
+      ".chd"
+    ],
+    "games": []
+  },
+  {
+    "id": "ps2",
+    "name": "PlayStation 2",
+    "icon": "assets/icons/ps2.png",
+    "visible": true,
+    "emulator_cmd": "pcsx2-qt.exe",
+    "roms_path": "roms/ps2/",
+    "rom_extensions": [
+      ".iso",
+      ".bin",
+      ".chd",
+      ".cso"
+    ],
+    "games": []
+  },
+  {
+    "id": "ps3",
+    "name": "PlayStation 3",
+    "icon": "assets/icons/ps3.png",
+    "visible": false,
+    "emulator_cmd": "rpcs3.exe",
+    "roms_path": "roms/ps3/",
+    "rom_extensions": [
+      ".pkg",
+      ".iso"
+    ],
+    "games": []
+  },
+  {
+    "id": "psp",
+    "name": "PlayStation Portable",
+    "icon": "assets/icons/psp.png",
+    "visible": true,
+    "emulator_cmd": "ppsspp.exe",
+    "roms_path": "roms/psp/",
+    "rom_extensions": [
+      ".iso",
+      ".cso",
+      ".pbp",
+      ".chd"
+    ],
+    "games": []
+  }
+]

@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<content>
+    <logflag>0</logflag>
+    <advanced_ppc_logging>false</advanced_ppc_logging>
+    <mlc_path></mlc_path>
+    <permanent_storage>true</permanent_storage>
+    <language>0</language>
+    <use_discord_presence>false</use_discord_presence>
+    <fullscreen_menubar>false</fullscreen_menubar>
+    <feral_gamemode>false</feral_gamemode>
+    <check_update>false</check_update>
+    <receive_untested_updates>false</receive_untested_updates>
+    <save_screenshot>true</save_screenshot>
+    <vk_warning>false</vk_warning>
+    <gp_download>false</gp_download>
+    <macos_disclaimer>false</macos_disclaimer>
+    <fullscreen>false</fullscreen>
+    <proxy_server></proxy_server>
+    <disable_screensaver>true</disable_screensaver>
+    <play_boot_sound>false</play_boot_sound>
+    <console_language>8</console_language>
+    <window_position>
+        <x>-1</x>
+        <y>-1</y>
+    </window_position>
+    <window_size>
+        <x>-1</x>
+        <y>-1</y>
+    </window_size>
+    <window_maximized>false</window_maximized>
+    <open_pad>false</open_pad>
+    <pad_position>
+        <x>-1</x>
+        <y>-1</y>
+    </pad_position>
+    <pad_size>
+        <x>-1</x>
+        <y>-1</y>
+    </pad_size>
+    <pad_maximized>false</pad_maximized>
+    <show_icon_column>true</show_icon_column>
+    <GameList>
+        <style>0</style>
+        <order>[0, 1, 2, 3, 4, 5, 6, 7, 8]</order>
+        <name_width>842</name_width>
+        <version_width>602</version_width>
+        <dlc_width>416</dlc_width>
+        <game_time_width>476</game_time_width>
+        <game_started_width>160</game_started_width>
+        <region_width>80</region_width>
+        <title_id>0</title_id>
+    </GameList>
+    <RecentLaunchFiles>
+        <Entry>c:/Users/campi/PycharmProjects/retrovault/roms/wiiu/MARIO KART 8 [Game] [000500001010ed00]</Entry>
+        <Entry>c:/Users/campi/PycharmProjects/retrovault/roms/wiiu/Donkey Kong Country Tropical Freeze [Game] [0005000010138300]</Entry>
+        <Entry>C:/Users/campi/PycharmProjects/RetroVault/roms/wiiu/Donkey Kong Country Tropical Freeze [Game] [0005000010138300]</Entry>
+        <Entry>C:/Users/campi/PycharmProjects/RetroVault/roms/wiiu/New SUPER MARIO BROS U New SUPER LUIGI U [Game] [000500001014b800]</Entry>
+        <Entry>./../../roms/wiiu/Donkey Kong Country Tropical Freeze [Game] [0005000010138300]</Entry>
+        <Entry>D:/RetroBat/roms/wiiu/The Legend of Zelda Breath of the Wild [Game] [00050000101c9500]</Entry>
+        <Entry>D:/RetroBat/roms/wiiu/New SUPER MARIO BROS U New SUPER LUIGI U [Game] [000500001014b800]</Entry>
+        <Entry>D:/RetroBat/roms/wiiu/Need for Speed Most Wanted U [Game] [0005000010128400]</Entry>
+        <Entry>D:/RetroBat/roms/wiiu/Donkey Kong Country Tropical Freeze [Game] [0005000010138300]</Entry>
+        <Entry>D:/RetroBat/roms/wiiu/PACMAN and the Ghostly Adventures 2 [Game] [000500001017e500]</Entry>
+        <Entry>D:/RetroBat/roms/wiiu/LEGO MARVEL AVENGERS [Game] [00050000101be900]</Entry>
+        <Entry>D:/RetroBat/roms/wiiu/LEGO Marvel Super Heroes [Game] [0005000010132400]</Entry>
+        <Entry>D:/RetroBat/roms/wiiu/LEGO STAR WARS The Force Awakens [Game] [00050000101daa00]</Entry>
+        <Entry>./../../roms/wiiu/LEGO STAR WARS The Force Awakens [Game] [00050000101daa00]</Entry>
+        <Entry>./../../roms/wiiu/MARIO KART 8 [Game] [000500001010ed00]</Entry>
+    </RecentLaunchFiles>
+    <RecentNFCFiles/>
+    <GamePaths>
+        <Entry>.\..\..\roms\wiiu</Entry>
+        <Entry>D:\RetroBat\roms\wiiu\The Legend of Zelda Breath of the Wild [Game] [00050000101c9500]\code</Entry>
+        <Entry>D:\RetroBat\roms\wiiu\NEW SUPER MARIO BROS. [DADP01]\code</Entry>
+        <Entry>D:\RetroBat\roms\wiiu\MARIO KART 8 [Game] [000500001010ed00]\code</Entry>
+        <Entry>D:\RetroBat\roms\wiiu\Need for Speed Most Wanted U [Game] [0005000010128400]\code</Entry>
+        <Entry>D:\RetroBat\roms\wiiu\LEGO STAR WARS The Force Awakens [Game] [00050000101daa00]\code</Entry>
+        <Entry>D:\RetroBat\roms\wiiu\LEGO Marvel Super Heroes [Game] [0005000010132400]\code</Entry>
+        <Entry>D:\RetroBat\roms\wiiu\LEGO MARVEL AVENGERS [Game] [00050000101be900]\code</Entry>
+        <Entry>D:\RetroBat\roms\wiiu\PACMAN and the Ghostly Adventures [Game] [0005000010147900]\code</Entry>
+        <Entry>D:\RetroBat\roms\wiiu\PACMAN and the Ghostly Adventures 2 [Game] [000500001017e500]\code</Entry>
+        <Entry>D:\RetroBat\roms\wiiu\New SUPER MARIO BROS U New SUPER LUIGI U [Game] [000500001014b800]\code</Entry>
+        <Entry>D:\RetroBat\roms\wiiu\Donkey Kong Country Tropical Freeze [Game] [0005000010138300]\code</Entry>
+    </GamePaths>
+    <GameCache/>
+    <GraphicPack>
+        <Entry filename="graphicPacks/downloadedGraphicPacks/KirbyRainbow_InvisibleLineFix/rules.txt"/>
+        <Entry filename="graphicPacks/downloadedGraphicPacks/XenobladeChroniclesX/Workarounds/Brightness/rules.txt">
+            <Preset>
+                <category>Standard presets</category>
+                <preset>WiiU default - Brightness fix only</preset>
+            </Preset>
+            <Preset>
+                <category>Exposure and brightness fix</category>
+                <preset>No extra exposure - Only brightness fix</preset>
+            </Preset>
+            <Preset>
+                <category>Contrast</category>
+                <preset>No extra contrast (Default)</preset>
+            </Preset>
+            <Preset>
+                <category>Saturation - Darkens image</category>
+                <preset>No extra saturation (Default)</preset>
+            </Preset>
+            <Preset>
+                <category>Exposure after colour grading</category>
+                <preset>Default post exposure</preset>
+            </Preset>
+        </Entry>
+        <Entry filename="graphicPacks/downloadedGraphicPacks/NewSuperMarioBrosU/Workarounds/CrashFix/rules.txt"/>
+        <Entry filename="graphicPacks/downloadedGraphicPacks/SkylandersSwapForce/Workarounds/PortalStabilityFix/rules.txt"/>
+        <Entry filename="graphicPacks/downloadedGraphicPacks/XenobladeChroniclesX/Mods/HideOfflineLabel/rules.txt"/>
+        <Entry filename="graphicPacks/downloadedGraphicPacks/XenobladeChroniclesX/Mods/HudChangeTimeFromEmanual/rules.txt"/>
+    </GraphicPack>
+    <Graphic>
+        <api>1</api>
+        <device>868020a7040000000002000000000000</device>
+        <VSync>0</VSync>
+        <GX2DrawdoneSync>true</GX2DrawdoneSync>
+        <UpscaleFilter>1</UpscaleFilter>
+        <DownscaleFilter>0</DownscaleFilter>
+        <FullscreenScaling>0</FullscreenScaling>
+        <AsyncCompile>false</AsyncCompile>
+        <vkAccurateBarriers>true</vkAccurateBarriers>
+        <Overlay>
+            <Position>0</Position>
+            <TextColor>4294967295</TextColor>
+            <TextScale>100</TextScale>
+            <FPS>false</FPS>
+            <DrawCalls>false</DrawCalls>
+            <CPUUsage>false</CPUUsage>
+            <CPUPerCoreUsage>false</CPUPerCoreUsage>
+            <RAMUsage>false</RAMUsage>
+            <VRAMUsage>false</VRAMUsage>
+            <Debug>false</Debug>
+        </Overlay>
+        <Notification>
+            <Position>1</Position>
+            <TextColor>4294967295</TextColor>
+            <TextScale>100</TextScale>
+            <ControllerProfiles>false</ControllerProfiles>
+            <ControllerBattery>false</ControllerBattery>
+            <ShaderCompiling>false</ShaderCompiling>
+            <FriendService>true</FriendService>
+        </Notification>
+    </Graphic>
+    <Audio>
+        <api>0</api>
+        <delay>0</delay>
+        <TVChannels>1</TVChannels>
+        <PadChannels>1</PadChannels>
+        <InputChannels>0</InputChannels>
+        <TVVolume>66</TVVolume>
+        <PadVolume>0</PadVolume>
+        <InputVolume>50</InputVolume>
+        <TVDevice>default</TVDevice>
+        <PadDevice></PadDevice>
+        <InputDevice></InputDevice>
+    </Audio>
+    <Account>
+        <PersistentId>2147483649</PersistentId>
+        <OnlineEnabled>false</OnlineEnabled>
+        <ActiveService>0</ActiveService>
+    </Account>
+    <AccountService/>
+    <Debug>
+        <CrashDumpWindows>0</CrashDumpWindows>
+        <GDBPort>1337</GDBPort>
+    </Debug>
+    <Input>
+        <DSUC host="127.0.0.1" port="26760"/>
+    </Input>
+    <EmulatedUsbDevices>
+        <EmulateSkylanderPortal>false</EmulateSkylanderPortal>
+        <EmulateInfinityBase>false</EmulateInfinityBase>
+        <EmulateDimensionsToypad>false</EmulateDimensionsToypad>
+    </EmulatedUsbDevices>
+</content>
