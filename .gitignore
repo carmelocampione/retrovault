@@ -1,7 +1,33 @@
-roms/gba/
-roms/wiiu/
+roms/
 .vscode/
 .idea/
 .claude/
+
+# Gebruikersconfig (bevat paden en credentials)
 config/settings.json
 config/consoles.json
+
+# PyInstaller build output
+build/
+dist/
+installer/
+*.spec.bak
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Emulator runtime data (saves, logs, caches)
+emulators/retroarch/saves/
+emulators/retroarch/states/
+emulators/retroarch/screenshots/
+emulators/retroarch/playlists/logs/
+emulators/retroarch/playlists/builtin/
+emulators/retroarch/retroarch.cfg
+emulators/retroarch/shaderCache/
+emulators/cemu/portable/log.txt
+emulators/cemu/portable/settings.xml
+emulators/cemu/portable/shaderCache/
+emulators/cemu/portable/mlc01/usr/save/
+emulators/cemu/portable/controllerProfiles/
