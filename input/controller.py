@@ -33,13 +33,19 @@ KEY_MAP = {
     pygame.K_q:         ACTION_QUIT,
 }
 
-# ── Gamepad button mapping (generiek / Xbox-layout) ────────────────────────────
-# Button indices variëren per controller, maar dit is de meest gebruikelijke mapping
+# ── Gamepad button mapping ─────────────────────────────────────────────────────
+# Xbox (XInput):  A=0  B=1  Start=7  Back=6
+# PS4/PS5 (SDL2): Cross=0  Circle=1  Options=9  Share=8
+# Generiek:       varieert – indices 0/1/7/6 dekken de meeste gevallen
 BUTTON_MAP = {
-    0: ACTION_SELECT,   # A / Cross
-    1: ACTION_BACK,     # B / Circle
-    7: ACTION_MENU,     # Start
-    6: ACTION_QUIT,     # Select/Back (optioneel)
+    0:  ACTION_SELECT,   # A / Cross
+    1:  ACTION_BACK,     # B / Circle
+    2:  ACTION_BACK,     # X / Square (extra terugknop)
+    6:  ACTION_BACK,     # Select / Share  (Xbox)
+    7:  ACTION_MENU,     # Start           (Xbox)
+    8:  ACTION_BACK,     # Share           (PS4/PS5)
+    9:  ACTION_MENU,     # Options         (PS4/PS5)
+    11: ACTION_MENU,     # Extra menu-knop (sommige generieke controllers)
 }
 
 # D-pad hat mapping  (hat value → actie)
@@ -53,6 +59,14 @@ HAT_MAP = {
 # Analoge stick – drempel
 AXIS_THRESHOLD = 0.5
 
+# D-pad als assen (PS4, PS5, generieke USB-gamepads)
+# Axis 4 = links/rechts D-pad, axis 5 = omhoog/omlaag D-pad
+# Axis 6/7 is een alternatieve mapping op sommige controllers
+DPAD_AXIS_PAIRS = [
+    (4, 5),   # PS4, PS5, veel generieke gamepads
+    (6, 7),   # Alternatieve layout
+]
+
 
 class InputHandler:
     """
@@ -62,8 +76,11 @@ class InputHandler:
 
     def __init__(self):
         self._actions: list[str] = []
-        # Voor analoge stick: debounce zodat één beweging niet 60x per seconde vuurt
-        self._axis_moved = {"left": False, "right": False, "up": False, "down": False}
+        # Debounce voor alle richtingsassen
+        self._axis_moved = {
+            "left": False, "right": False,
+            "up":   False, "down":  False,
+        }
 
     def process_events(self, events: list):
         """Verwerk alle pygame-events van dit frame."""
@@ -80,44 +97,62 @@ class InputHandler:
                 action = BUTTON_MAP.get(event.button)
                 if action:
                     self._actions.append(action)
+                else:
+                    print(f"[INPUT] Onbekende knop: {event.button}")
 
-            # D-pad (hat)
+            # D-pad via HAT (Xbox, sommige andere controllers)
             elif event.type == pygame.JOYHATMOTION:
                 action = HAT_MAP.get(event.value)
                 if action:
                     self._actions.append(action)
 
-            # Analoge stick (axis 0 = links/rechts, axis 1 = omhoog/omlaag)
+            # Analoge stick + D-pad als assen (PS4/PS5/generieke controllers)
             elif event.type == pygame.JOYAXISMOTION:
                 self._handle_axis(event.axis, event.value)
 
     def _handle_axis(self, axis: int, value: float):
-        """Vertaalt analoge stickbeweging naar directie-acties met debounce."""
-        if axis == 0:  # Links/rechts
-            if value < -AXIS_THRESHOLD and not self._axis_moved["left"]:
-                self._actions.append(ACTION_LEFT)
-                self._axis_moved["left"]  = True
-                self._axis_moved["right"] = False
-            elif value > AXIS_THRESHOLD and not self._axis_moved["right"]:
-                self._actions.append(ACTION_RIGHT)
-                self._axis_moved["right"] = True
-                self._axis_moved["left"]  = False
-            elif abs(value) < AXIS_THRESHOLD:
-                self._axis_moved["left"]  = False
-                self._axis_moved["right"] = False
+        """Vertaalt assen naar directie-acties met debounce."""
 
-        elif axis == 1:  # Omhoog/omlaag
-            if value < -AXIS_THRESHOLD and not self._axis_moved["up"]:
-                self._actions.append(ACTION_UP)
-                self._axis_moved["up"]   = True
-                self._axis_moved["down"] = False
-            elif value > AXIS_THRESHOLD and not self._axis_moved["down"]:
-                self._actions.append(ACTION_DOWN)
-                self._axis_moved["down"] = True
-                self._axis_moved["up"]   = False
-            elif abs(value) < AXIS_THRESHOLD:
-                self._axis_moved["up"]   = False
-                self._axis_moved["down"] = False
+        # Controleer D-pad-as-paren (PS4/generiek)
+        for h_axis, v_axis in DPAD_AXIS_PAIRS:
+            if axis == h_axis:
+                self._fire_lr(value)
+                return
+            if axis == v_axis:
+                self._fire_ud(value)
+                return
+
+        # Linker analoge stick (axis 0 = L/R, axis 1 = U/D)
+        if axis == 0:
+            self._fire_lr(value)
+        elif axis == 1:
+            self._fire_ud(value)
+
+    def _fire_lr(self, value: float):
+        if value < -AXIS_THRESHOLD and not self._axis_moved["left"]:
+            self._actions.append(ACTION_LEFT)
+            self._axis_moved["left"]  = True
+            self._axis_moved["right"] = False
+        elif value > AXIS_THRESHOLD and not self._axis_moved["right"]:
+            self._actions.append(ACTION_RIGHT)
+            self._axis_moved["right"] = True
+            self._axis_moved["left"]  = False
+        elif abs(value) < AXIS_THRESHOLD:
+            self._axis_moved["left"]  = False
+            self._axis_moved["right"] = False
+
+    def _fire_ud(self, value: float):
+        if value < -AXIS_THRESHOLD and not self._axis_moved["up"]:
+            self._actions.append(ACTION_UP)
+            self._axis_moved["up"]   = True
+            self._axis_moved["down"] = False
+        elif value > AXIS_THRESHOLD and not self._axis_moved["down"]:
+            self._actions.append(ACTION_DOWN)
+            self._axis_moved["down"] = True
+            self._axis_moved["up"]   = False
+        elif abs(value) < AXIS_THRESHOLD:
+            self._axis_moved["up"]   = False
+            self._axis_moved["down"] = False
 
     def consume_actions(self) -> list[str]:
         """

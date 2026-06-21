@@ -8,6 +8,7 @@ Detailpagina voor één game.
 
 import pygame
 import os
+import ctypes
 
 from input.controller import (
     ACTION_SELECT, ACTION_BACK, ACTION_UP, ACTION_DOWN
@@ -375,12 +376,40 @@ class GameDetailScreen:
         return None
 
     def _launch_game(self):
+        pygame.event.clear()
+
         ok = self.launcher.launch(self.console, self.game)
 
-        self._launch_error = (
-            "" if ok
-            else "Kon emulator niet starten \u2013 check emulator_cmd in consoles.json"
-        )
+        if ok:
+            # Geef de emulator tijd om op te starten en focus te pakken
+            # DAARNA pas minimaliseren – anders pikt Windows de controllerinput op
+            pygame.time.wait(800)
+            pygame.event.clear()
+            pygame.display.iconify()
+            # Wacht (blokkerend) tot RetroArch afgesloten is
+            self.launcher.wait()
+            pygame.event.clear()
+            pygame.time.wait(300)
+
+            # Herstel venster vanuit geminimaliseerde toestand via Windows API
+            hwnd = pygame.display.get_wm_info().get('window')
+            if hwnd:
+                ctypes.windll.user32.ShowWindow(hwnd, 9)   # SW_RESTORE
+                ctypes.windll.user32.SetForegroundWindow(hwnd)
+
+            # Herstel fullscreen venster
+            modes = pygame.display.list_modes()
+            if modes:
+                pygame.display.set_mode(modes[0], pygame.FULLSCREEN)
+            else:
+                info = pygame.display.Info()
+                pygame.display.set_mode(
+                    (info.current_w, info.current_h), pygame.FULLSCREEN
+                )
+        else:
+            self._launch_error = (
+                "Kon emulator niet starten \u2013 check emulator_cmd in consoles.json"
+            )
 
     # ── Draw ───────────────────────────────────────────────────────────────────
 

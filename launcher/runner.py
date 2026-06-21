@@ -8,8 +8,44 @@ import subprocess
 import os
 import shlex
 import logging
+import threading
+import time
+import ctypes
 
 logger = logging.getLogger("retrovault.launcher")
+
+# XInput button masks (Windows XInput API)
+_XINPUT_BTN_START  = 0x0010
+_XINPUT_BTN_BACK   = 0x0020  # Select
+_QUIT_COMBO        = _XINPUT_BTN_BACK | _XINPUT_BTN_START  # Select + Start
+
+
+def _load_xinput():
+    for dll in ("xinput1_4", "xinput1_3", "xinput9_1_0"):
+        try:
+            return ctypes.windll.LoadLibrary(dll)
+        except OSError:
+            continue
+    return None
+
+
+class _XINPUT_GAMEPAD(ctypes.Structure):
+    _fields_ = [
+        ("wButtons",      ctypes.c_ushort),
+        ("bLeftTrigger",  ctypes.c_ubyte),
+        ("bRightTrigger", ctypes.c_ubyte),
+        ("sThumbLX",      ctypes.c_short),
+        ("sThumbLY",      ctypes.c_short),
+        ("sThumbRX",      ctypes.c_short),
+        ("sThumbRY",      ctypes.c_short),
+    ]
+
+
+class _XINPUT_STATE(ctypes.Structure):
+    _fields_ = [
+        ("dwPacketNumber", ctypes.c_ulong),
+        ("Gamepad",        _XINPUT_GAMEPAD),
+    ]
 
 
 class GameLauncher:
@@ -93,26 +129,12 @@ class GameLauncher:
                 print(f"[LAUNCHER] Core exists: {os.path.exists(core_path)} - {core_path}")
             print(f"[LAUNCHER] ROM exists: {os.path.exists(rom_path)} - {rom_path}")
             
-            # Voeg --fullscreen=false toe voor zichtbaarheid
-            if '--fullscreen=false' not in full_cmd_string:
-                full_cmd_string += ' --fullscreen=false'
-                print(f"[LAUNCHER] Updated Command: {full_cmd_string}")
-            
             self._process = subprocess.Popen(
                 full_cmd_string,
                 cwd=self.base_dir,
                 shell=True,
             )
             print(f"[LAUNCHER] Process started with PID: {self._process.pid}")
-            
-            # Wacht even om te zien of het proces blijft draaien
-            import time
-            time.sleep(0.5)
-            if self._process.poll() is not None:
-                print(f"[LAUNCHER] Process exited with code: {self._process.returncode}")
-            else:
-                print(f"[LAUNCHER] Process is running")
-            
             return True
         except FileNotFoundError as e:
             logger.error(f"Emulator niet gevonden: {e}")
@@ -129,10 +151,59 @@ class GameLauncher:
             return False
         return self._process.poll() is None
 
+    def wait(self):
+        """Blokkeert totdat het emulator-proces afgesloten is.
+
+        Monitort op de achtergrond de controller: Select+Start sluit de emulator.
+        """
+        if self._process is None:
+            return
+        monitor = threading.Thread(
+            target=self._xinput_quit_monitor,
+            daemon=True,
+        )
+        monitor.start()
+        self._process.wait()
+        self._process = None
+
+    def _xinput_quit_monitor(self):
+        """Achtergrond-thread: termineert het proces bij Select+Start combo."""
+        xinput = _load_xinput()
+        if xinput is None:
+            print("[LAUNCHER] XInput niet beschikbaar – controller-quit uitgeschakeld")
+            return
+
+        print("[LAUNCHER] XInput monitor gestart (Select+Start om af te sluiten)")
+        state = _XINPUT_STATE()
+        was_pressed = False
+        while self._process is not None and self._process.poll() is None:
+            for i in range(4):
+                if xinput.XInputGetState(i, ctypes.byref(state)) == 0:
+                    buttons = state.Gamepad.wButtons
+                    if (buttons & _QUIT_COMBO) == _QUIT_COMBO:
+                        if not was_pressed:
+                            was_pressed = True
+                            print("[LAUNCHER] Select+Start: emulator afsluiten")
+                            # taskkill /T doodt cmd.exe + alle kindprocessen (bijv. Cemu)
+                            pid = self._process.pid
+                            subprocess.call(
+                                ["taskkill", "/F", "/T", "/PID", str(pid)],
+                                stdout=subprocess.DEVNULL,
+                                stderr=subprocess.DEVNULL,
+                            )
+                            return
+                    else:
+                        was_pressed = False
+            time.sleep(0.1)
+
     def stop(self):
-        """Beëindig het actieve emulator-proces (forceer als nodig)."""
+        """Beëindig het actieve emulator-proces en alle kindprocessen."""
         if self._process and self.is_running():
-            self._process.terminate()
+            subprocess.call(
+                ["taskkill", "/F", "/T", "/PID", str(self._process.pid)],
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.DEVNULL,
+            )
             try:
                 self._process.wait(timeout=3)
             except subprocess.TimeoutExpired:

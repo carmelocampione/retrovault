@@ -25,7 +25,7 @@ DEFAULT_CONSOLES = [
         "name": "Nintendo NES",
         "icon": "assets/icons/nes.png",
         "visible": True,
-        "emulator_cmd": "retroarch -L cores/nestopia_libretro.dll",
+        "emulator_cmd": "emulators/retroarch/retroarch.exe -L emulators/retroarch/cores/nestopia_libretro.dll",
         "roms_path": "roms/nes/",
         "rom_extensions": [".nes", ".zip"],
         "games": []
@@ -35,7 +35,7 @@ DEFAULT_CONSOLES = [
         "name": "Super Nintendo",
         "icon": "assets/icons/snes.png",
         "visible": True,
-        "emulator_cmd": "retroarch -L cores/snes9x_libretro.dll",
+        "emulator_cmd": "emulators/retroarch/retroarch.exe -L emulators/retroarch/cores/snes9x_libretro.dll",
         "roms_path": "roms/snes/",
         "rom_extensions": [".smc", ".sfc", ".zip"],
         "games": []
@@ -45,7 +45,7 @@ DEFAULT_CONSOLES = [
         "name": "Nintendo 64",
         "icon": "assets/icons/n64.png",
         "visible": True,
-        "emulator_cmd": "retroarch -L cores/mupen64plus_libretro.dll",
+        "emulator_cmd": "emulators/retroarch/retroarch.exe -L emulators/retroarch/cores/mupen64plus_libretro.dll",
         "roms_path": "roms/n64/",
         "rom_extensions": [".z64", ".n64", ".v64", ".zip"],
         "games": []
@@ -55,7 +55,7 @@ DEFAULT_CONSOLES = [
         "name": "GameCube",
         "icon": "assets/icons/gamecube.png",
         "visible": True,
-        "emulator_cmd": "Dolphin.exe -e",
+        "emulator_cmd": "emulators/dolphin/Dolphin.exe -e",
         "roms_path": "roms/gamecube/",
         "rom_extensions": [".iso", ".rvz", ".gcm", ".gcz", ".ciso",".7z"],
         "games": []
@@ -65,7 +65,7 @@ DEFAULT_CONSOLES = [
         "name": "Nintendo Wii",
         "icon": "assets/icons/wii.png",
         "visible": True,
-        "emulator_cmd": "Dolphin.exe -e",
+        "emulator_cmd": "emulators/dolphin/Dolphin.exe -e",
         "roms_path": "roms/wii/",
         "rom_extensions": [".iso", ".rvz", ".wbfs", ".gcz", ".ciso"],
         "games": []
@@ -75,7 +75,7 @@ DEFAULT_CONSOLES = [
         "name": "Nintendo Wii U",
         "icon": "assets/icons/wiiu.png",
         "visible": True,
-        "emulator_cmd": "Cemu.exe -g",
+        "emulator_cmd": "emulators/cemu/Cemu.exe -g",
         "roms_path": "roms/wiiu/",
         "rom_extensions": [".rpx", ".wud", ".wux", ".iso"],
         "games": []
@@ -85,7 +85,7 @@ DEFAULT_CONSOLES = [
         "name": "Nintendo Switch",
         "icon": "assets/icons/switch.png",
         "visible": True,
-        "emulator_cmd": "yuzu.exe",
+        "emulator_cmd": "emulators/yuzu/yuzu.exe",
         "roms_path": "roms/switch/",
         "rom_extensions": [".nsp", ".xci", ".nca"],
         "games": []
@@ -95,7 +95,7 @@ DEFAULT_CONSOLES = [
         "name": "Game Boy",
         "icon": "assets/icons/gb.png",
         "visible": True,
-        "emulator_cmd": "retroarch -L cores/gambatte_libretro.dll",
+        "emulator_cmd": "emulators/retroarch/retroarch.exe -L emulators/retroarch/cores/gambatte_libretro.dll",
         "roms_path": "roms/gb/",
         "rom_extensions": [".gb", ".zip"],
         "games": []
@@ -105,7 +105,7 @@ DEFAULT_CONSOLES = [
         "name": "Game Boy Color",
         "icon": "assets/icons/gbc.png",
         "visible": True,
-        "emulator_cmd": "retroarch -L cores/gambatte_libretro.dll",
+        "emulator_cmd": "emulators/retroarch/retroarch.exe -L emulators/retroarch/cores/gambatte_libretro.dll",
         "roms_path": "roms/gbc/",
         "rom_extensions": [".gbc", ".zip"],
         "games": []
@@ -115,7 +115,7 @@ DEFAULT_CONSOLES = [
         "name": "Game Boy Advance",
         "icon": "assets/icons/gba.png",
         "visible": True,
-        "emulator_cmd": "retroarch -L cores/mgba_libretro.dll",
+        "emulator_cmd": "emulators/retroarch/retroarch.exe -L emulators/retroarch/cores/mgba_libretro.dll",
         "roms_path": "roms/gba/",
         "rom_extensions": [".gba", ".zip"],
         "games": []
@@ -125,7 +125,7 @@ DEFAULT_CONSOLES = [
         "name": "Nintendo DS",
         "icon": "assets/icons/nds.png",
         "visible": True,
-        "emulator_cmd": "retroarch -L cores/desmume_libretro.dll",
+        "emulator_cmd": "emulators/retroarch/retroarch.exe -L emulators/retroarch/cores/desmume_libretro.dll",
         "roms_path": "roms/nds/",
         "rom_extensions": [".nds", ".zip"],
         "games": []
@@ -136,7 +136,7 @@ DEFAULT_CONSOLES = [
         "name": "Sega Mega Drive",
         "icon": "assets/icons/megadrive.png",
         "visible": True,
-        "emulator_cmd": "retroarch -L cores/genesis_plus_gx_libretro.dll",
+        "emulator_cmd": "emulators/retroarch/retroarch.exe -L emulators/retroarch/cores/genesis_plus_gx_libretro.dll",
         "roms_path": "roms/megadrive/",
         "rom_extensions": [".md", ".bin", ".gen", ".zip"],
         "games": []
@@ -146,7 +146,7 @@ DEFAULT_CONSOLES = [
         "name": "Sega Dreamcast",
         "icon": "assets/icons/dreamcast.png",
         "visible": True,
-        "emulator_cmd": "retroarch -L cores/flycast_libretro.dll",
+        "emulator_cmd": "emulators/retroarch/retroarch.exe -L emulators/retroarch/cores/flycast_libretro.dll",
         "roms_path": "roms/dreamcast/",
         "rom_extensions": [".cdi", ".gdi", ".chd", ".iso"],
         "games": []
@@ -157,7 +157,7 @@ DEFAULT_CONSOLES = [
         "name": "PlayStation 1",
         "icon": "assets/icons/ps1.png",
         "visible": True,
-        "emulator_cmd": "retroarch -L cores/mednafen_psx_libretro.dll",
+        "emulator_cmd": "emulators/retroarch/retroarch.exe -L emulators/retroarch/cores/mednafen_psx_libretro.dll",
         "roms_path": "roms/ps1/",
         "rom_extensions": [".bin", ".cue", ".iso", ".pbp", ".chd"],
         "games": []
@@ -167,7 +167,7 @@ DEFAULT_CONSOLES = [
         "name": "PlayStation 2",
         "icon": "assets/icons/ps2.png",
         "visible": True,
-        "emulator_cmd": "pcsx2-qt.exe",
+        "emulator_cmd": "emulators/pcsx2/pcsx2-qt.exe",
         "roms_path": "roms/ps2/",
         "rom_extensions": [".iso", ".bin", ".chd", ".cso"],
         "games": []
@@ -177,7 +177,7 @@ DEFAULT_CONSOLES = [
         "name": "PlayStation 3",
         "icon": "assets/icons/ps3.png",
         "visible": True,
-        "emulator_cmd": "rpcs3.exe",
+        "emulator_cmd": "emulators/rpcs3/rpcs3.exe",
         "roms_path": "roms/ps3/",
         "rom_extensions": [".pkg", ".iso"],
         "games": []
@@ -187,7 +187,7 @@ DEFAULT_CONSOLES = [
         "name": "PlayStation Portable",
         "icon": "assets/icons/psp.png",
         "visible": True,
-        "emulator_cmd": "ppsspp.exe",
+        "emulator_cmd": "emulators/ppsspp/ppsspp.exe",
         "roms_path": "roms/psp/",
         "rom_extensions": [".iso", ".cso", ".pbp", ".chd"],
         "games": []

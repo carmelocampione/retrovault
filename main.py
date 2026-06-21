@@ -6,8 +6,12 @@ import pygame
 import sys
 import os
 
-# Make sure imports work from any working directory
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+# Wanneer de app als PyInstaller-exe draait, staat BASE_DIR bij de exe.
+# In development staat BASE_DIR bij main.py.
+if getattr(sys, 'frozen', False):
+    BASE_DIR = os.path.dirname(sys.executable)
+else:
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, BASE_DIR)
 
 from config.config_manager import ConfigManager
@@ -28,12 +32,22 @@ def main():
     pygame.joystick.init()
 
     # Detect connected controllers
-    joysticks = []
-    for i in range(pygame.joystick.get_count()):
-        js = pygame.joystick.Joystick(i)
+    joysticks = {}
+
+    def _init_joystick(index: int):
+        js = pygame.joystick.Joystick(index)
         js.init()
-        joysticks.append(js)
+        joysticks[js.get_instance_id()] = js
         print(f"[INPUT] Controller gevonden: {js.get_name()}")
+        print(f"[INPUT]   Assen: {js.get_numaxes()}  "
+              f"Knoppen: {js.get_numbuttons()}  "
+              f"Hats: {js.get_numhats()}")
+
+    for i in range(pygame.joystick.get_count()):
+        _init_joystick(i)
+
+    if not joysticks:
+        print("[INPUT] Geen controller gevonden – alleen toetsenbord actief.")
 
     # Window setup – start in fullscreen mode
     # Use the best available display mode to avoid black bars
@@ -64,6 +78,11 @@ def main():
         for event in events:
             if event.type == pygame.QUIT:
                 running = False
+            elif event.type == pygame.JOYDEVICEADDED:
+                _init_joystick(event.device_index)
+            elif event.type == pygame.JOYDEVICEREMOVED:
+                joysticks.pop(event.instance_id, None)
+                print(f"[INPUT] Controller losgekoppeld (id={event.instance_id})")
 
         # Feed events to input handler (alleen als scherm geen raw input nodig heeft)
         needs_raw = hasattr(active_screen, 'needs_raw_input') and active_screen.needs_raw_input()

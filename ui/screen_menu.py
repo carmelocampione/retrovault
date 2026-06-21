@@ -94,7 +94,7 @@ EMULATOR_PRESETS = {
     "gamecube":  [("Dolphin",                  "Dolphin.exe -e"),
                   ("RetroArch – Dolphin",      "retroarch -L cores/dolphin_libretro.dll")],
     "wii":       [("Dolphin",                  "Dolphin.exe -e")],
-    "wiiu":      [("Cemu",                     "Cemu.exe -g")],
+    "wiiu":      [("Cemu",                     "Cemu.exe -f -g")],
     "switch":    [("Yuzu",                     "yuzu.exe"),
                   ("Ryujinx",                  "Ryujinx.exe")],
     "gb":        [("RetroArch – Gambatte",     "retroarch -L cores/gambatte_libretro.dll"),
